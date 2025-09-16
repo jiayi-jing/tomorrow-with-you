@@ -15,6 +15,26 @@ body {
     font-family: "Microsoft YaHei", sans-serif;
 }
 
+/* 背景样式 */
+.background{
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+
+}
+
+#p1{
+    background-image: url('./图片/1.png');
+    width: 300px;
+    height: 300px;
+
+}
+
+
+
+
+
+
 /* 容器样式 */
 .container {
     text-align: center;
@@ -62,3 +82,4 @@ h1 {
         font-size: 1.8rem;
     }
 }
+
