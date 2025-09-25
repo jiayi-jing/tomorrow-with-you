@@ -24,7 +24,7 @@ body {
 
 /* 模块样式####################################################### */
 /* header模块 */
-.header{
+.header {
     width: 100%;
     height: 75px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -39,7 +39,7 @@ body {
 
 
 /* header-updates模块 */
-#header-updates{
+#header-updates {
     font-style: italic;
     position: relative;
     left: 15px;
@@ -49,24 +49,75 @@ body {
 
 /* main模块 */
 /* main-top模块 */
-.main-top {
-    
-    
-}
-#p2{
+.main-top {}
+
+#p2 {
     width: 100%;
     height: 550px;
     background-image: url('./图片/2.png');
-    background-size:100% 100%;
+    background-size: 100% 100%;
     text-align: center;
     background-repeat: no-repeat;
     position: relative;
     top: 0%;
     left: 0px;
-    
-
-   
 }
+
+
+
+.heart {
+    position: relative;
+    margin: 0 auto;
+    top: 100px;
+    width: 150px;
+    height: 130px;
+    animation: beat 5s 1s infinite alternate-reverse;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 75px;
+    height: 120px;
+    background-color: #ed1c05;
+    border-radius: 50px 50px 0 0;
+}
+
+.heart:before {
+    left: 75px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes beat {
+    0% {
+        transform: scale(0.8);
+    }
+
+    14% {
+        transform: scale(1.2);
+    }
+
+    28% {
+        transform: scale(1);
+    }
+
+    42% {
+        transform: scale(1.2);
+    }
+
+    70% {
+        transform: scale(0.8);
+    }
+}
+
 
 /* main-record-time模块 */
 .record-time {
@@ -75,21 +126,24 @@ body {
     height: 200px;
     text-align: center;
     padding: 2rem;
-    background-color:rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     position: relative;
     top: 100px;
-   
+
 }
 
 /* 手机设备调整 (600px以下) */
 @media (max-width: 600px) {
     #p2 {
-        height: 350px; /* 进一步降低高度适应手机 */
-        background-size: cover; /* 优先保证图片覆盖容器 */
-        background-position: center; /* 重点展示图片中心区域 */
+        height: 350px;
+        /* 进一步降低高度适应手机 */
+        background-size: cover;
+        /* 优先保证图片覆盖容器 */
+        background-position: center;
+        /* 重点展示图片中心区域 */
     }
 }
 
@@ -122,11 +176,11 @@ h1 {
         width: 80%;
         padding: 1.5rem;
     }
-    
+
     h1 {
         font-size: 1.5rem;
     }
-    
+
     .timer {
         font-size: 1.8rem;
     }
@@ -136,13 +190,10 @@ h1 {
 
 
 
-.link-to-memorial{
-   
-    
-}
+.link-to-memorial {}
 
 
-#p1{
+#p1 {
     background-image: url('./图片/1.png');
     width: 300px;
     height: 300px;
