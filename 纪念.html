@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的恋爱日志</title>
+    <!-- 引入字体图标（用于爱心、日期等符号） -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        /* 全局样式：柔和基调 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", "SimSun", sans-serif;
+        }
+        body {
+            background-color: #fff5f7; /* 浅粉色背景，营造温柔氛围 */
+            padding: 40px 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 标题样式：手写体+爱心点缀 */
+        .log-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        .log-title h1 {
+            font-size: 36px;
+            color: #ff6b81; /* 主粉色 */
+            font-weight: 500;
+            font-family: "Brush Script MT", cursive; /* 手写字体，增强专属感 */
+            letter-spacing: 2px;
+        }
+        .log-title .heart {
+            color: #ff6b81;
+            margin: 0 10px;
+            animation: beat 1.5s infinite; /* 爱心跳动动画 */
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* 时间轴核心样式：垂直居中线+日期标记 */
+        .timeline {
+            position: relative;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        /* 时间轴竖线 */
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: #ffccd5; /* 浅粉色竖线 */
+            transform: translateX(-50%);
+        }
+
+        /* 日记卡片样式：左右交替排列 */
+        .log-card {
+            position: relative;
+            margin-bottom: 60px;
+            width: 45%;
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(255, 107, 129, 0.1); /* 粉色阴影，更柔和 */
+            transition: transform 0.3s ease;
+        }
+        /* 鼠标悬浮：轻微上浮，增强交互感 */
+        .log-card:hover {
+            transform: translateY(-5px);
+        }
+        /* 左侧卡片（奇数条） */
+        .log-card.left {
+            margin-right: auto;
+            margin-left: 0;
+        }
+        /* 右侧卡片（偶数条） */
+        .log-card.right {
+            margin-left: auto;
+            margin-right: 0;
+        }
+        /* 卡片与时间轴的连接点（小爱心） */
+        .log-card::after {
+            content: "\f004"; /* 爱心图标（font-awesome） */
+            font-family: "FontAwesome";
+            position: absolute;
+            top: 25px;
+            width: 24px;
+            height: 24px;
+            background-color: #ff6b81;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            z-index: 1;
+        }
+        .log-card.left::after {
+            right: -12px; /* 左侧卡片的爱心在右侧 */
+        }
+        .log-card.right::after {
+            left: -12px; /* 右侧卡片的爱心在左侧 */
+        }
+
+        /* 卡片内部元素：日期、标题、内容、图片 */
+        .log-date {
+            font-size: 14px;
+            color: #ff8fa3; /* 浅粉色日期 */
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .log-date i {
+            margin-right: 8px;
+        }
+        .log-title-card {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 500;
+            border-left: 3px solid #ff6b81; /* 左侧粉色小竖线，突出标题 */
+            padding-left: 10px;
+        }
+        .log-content {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        /* 日记配图：圆角+自适应 */
+        .log-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 15px;
+            object-fit: cover;
+            height: 200px; /* 固定高度，避免卡片变形 */
+        }
+
+        /* 移动端适配（屏幕<768px时） */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px; /* 竖线移到左侧 */
+            }
+            .log-card {
+                width: 85%; /* 卡片占满宽度 */
+                margin-left: 60px !important; /* 统一向左偏移，留出竖线位置 */
+                margin-right: auto !important;
+            }
+            .log-card::after {
+                left: -12px; /* 所有卡片的爱心都在左侧 */
+            }
+            .log-title h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="log-title">
+            <h1>我们的恋爱日志 <span class="heart"><i class="fa fa-heart"></i></span> 记录每一刻心动</h1>
+        </div>
+
+        <!-- 时间轴日记主体 -->
+        <div class="timeline">
+            <!-- 日记卡片1：左侧 -->
+            <div class="log-card left">
+                <div class="log-date">
+                    <i class="fa fa-calendar"></i> 2022.03.27
+                </div>
+                <h3 class="log-title-card">峡谷初识</h3>
+                <p class="log-content">
+                    我们认识了
+                </p>
+                <!-- <img src="date-1.jpg" alt="" class="log-img"> 替换为你的照片路径 -->
+            </div>
+
+            <!-- 日记卡片2：右侧 -->
+            <div class="log-card right">
+                <div class="log-date">
+                    <i class="fa fa-calendar"></i> 2025.08.26
+                </div>
+                <h3 class="log-title-card">爱恋告白</h3>
+                <p class="log-content">
+                    我们恋爱了
+                    <!-- 原打算在两天后的七夕节向你正式表白，奈何你七夕前一天便要回到学校，担心你不能在七夕前收到，只好提前两天匆忙购买了传达喜欢的永生花，在商家草草准备的贺卡上匆匆进行了表白。我们“突然”开启了恋爱 -->
+                </p>
+                <!-- <img src="date-2.jpg" alt="" class="log-img"> 替换为你的照片路径 -->
+            </div>
+
+            <!-- 日记卡片3：左侧 -->
+            <div class="log-card left">
+                <div class="log-date">
+                    <i class="fa fa-calendar"></i> 2025.10.01
+                </div>
+                <h3 class="log-title-card"></h3>
+                <p class="log-content">
+                    我们见面了
+                </p>
+                <!-- <img src="date-3.jpg" alt="" class="log-img"> 替换为你的照片路径 -->
+            </div>
+
+            <!-- 可复制以上卡片结构，添加更多日记 -->
+        </div>
+    </div>
+</body>
+</html>
