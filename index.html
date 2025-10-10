@@ -12,6 +12,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
     <link rel="manifest" href="./favicon/site.webmanifest">
+    <!-- 音乐 -->
+     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
 
@@ -31,7 +33,7 @@
             </div>
         </div>
 
-
+<!-- 倒计时 -->
         <div class="record-time">
             <h1>我们一起走过的时光</h1>
             <div class="timer">
@@ -43,7 +45,7 @@
         </div>
 
 
-
+<!-- 纪念日志 -->
         <div class="link-to-memorial">
             <div id="p1">
                 <a href="./纪念.html">
@@ -51,10 +53,23 @@
                 </a>
             </div>
         </div>
-    
-
-        
     </div>
+
+    <div class="sidebar">
+ <!-- 音频元素 -->
+        <audio id="bgMusic" loop>
+            <source src="./music/恋人 - 李荣浩.mp3" type="audio/mpeg">
+            您的浏览器不支持音频播放
+        </audio>
+
+        <!-- 音乐控制图标 -->
+        <div class="music-player" id="musicController">
+            <i class="fa fa-music music-icon" id="playIcon"></i>
+        </div>
+    </div>
+
+
+
     <!-- 引入JavaScript逻辑文件 -->
     <script src="script.js"></script>
 </body>

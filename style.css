@@ -49,6 +49,7 @@ body {
 
 
 /* main模块 */
+
 /* main-top模块 */
 .main-top {}
 
@@ -64,7 +65,7 @@ body {
     left: 0px;
 }
 
-/*  */
+/*背景页面  */
 #sentence {
     position: relative;
     top: 0px;
@@ -228,8 +229,7 @@ h1 {
 
 
 
-
-
+/* 纪念日志 */
 .link-to-memorial {}
 
 
@@ -244,3 +244,38 @@ h1 {
     position: relative;
     top: 200px;
 }
+
+/* sidebar模块 */
+ /* 音乐播放器样式 */
+        .music-player {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff7eb3, #ff6666);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(255, 102, 102, 0.3);
+            cursor: pointer;
+            z-index: 9999;
+            transition: all 0.3s ease;
+        }
+        
+        .music-player:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 102, 102, 0.4);
+        }
+        
+        .music-icon {
+            color: white;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        /* 隐藏原生音频控件 */
+        audio {
+            display: none;
+        }

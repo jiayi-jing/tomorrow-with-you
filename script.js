@@ -44,3 +44,39 @@ updateTimer();
 
 // 每秒更新一次
 setInterval(updateTimer, 1000);
+
+
+// ######################################################音乐######################################################
+ // 获取元素
+        const musicController = document.getElementById('musicController');
+        const bgMusic = document.getElementById('bgMusic');
+        const playIcon = document.getElementById('playIcon');
+        
+        // 初始状态
+        let isPlaying = false;
+        
+        // 点击控制播放/暂停
+        musicController.addEventListener('click', function() {
+            if (isPlaying) {
+                // 暂停播放
+                bgMusic.pause();
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-music');
+            } else {
+                // 开始播放
+                bgMusic.play().catch(error => {
+                    console.log('播放失败:', error);
+                    alert('请点击允许自动播放以聆听音乐');
+                });
+                playIcon.classList.remove('fa-music');
+                playIcon.classList.add('fa-pause');
+            }
+            isPlaying = !isPlaying;
+        });
+        
+        // 音乐结束时重置图标
+        bgMusic.addEventListener('ended', function() {
+            playIcon.classList.remove('fa-pause');
+            playIcon.classList.add('fa-music');
+            isPlaying = false;
+        });
